@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PT_SmartBit.Utilidades
 {
-    internal class DS
+    public class DS
     {
+        public const string Exito = "Exito";
+        public const string Error = "Error";
     }
 }
