@@ -13,6 +13,7 @@ namespace PT_SmartBit.AccesoDatos.Data
         }
 
         public DbSet<TipoGasto> TipoGastos { get; set; }
+        public DbSet<FondoMonetario> FondosMonetarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

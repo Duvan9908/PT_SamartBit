@@ -12,10 +12,12 @@ namespace PT_SmartBit.AccesoDatos.Repositorio
     {
         private readonly ApplicationDbContext _db;
         public ITipoGastoRepositorio TipoGasto { get; private set; }
+        public IFondoMonetarioRepositorio FondoMonetario { get; private set; }
         public UnidadTrabajo(ApplicationDbContext db)
         {
             _db = db;
             TipoGasto = new TipoGastoRepositorio(_db);
+            FondoMonetario = new FondoMonetarioRepositorio(_db);
         }
 
         public void Dispose()
