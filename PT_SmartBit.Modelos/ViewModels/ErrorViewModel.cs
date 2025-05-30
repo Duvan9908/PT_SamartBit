@@ -1,4 +1,4 @@
-namespace PT_SmartBit.Models
+namespace PT_SmartBit.Modelos.ViewModels
 {
     public class ErrorViewModel
     {

@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using PT_SmartBit.Models;
+using PT_SmartBit.Modelos.ViewModels;
 
-namespace PT_SmartBit.Controllers
+namespace PT_SmartBit.Areas.Home.Controllers
 {
+    [Area("Home")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
