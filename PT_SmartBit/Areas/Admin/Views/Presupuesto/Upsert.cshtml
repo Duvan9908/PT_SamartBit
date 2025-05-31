@@ -1,0 +1,75 @@
+﻿@model PT_SmartBit.Modelos.ViewModels.PresupuestoVM
+@using PT_SmartBit.Utilidades
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Crear Presupuesto";
+}
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+
+        @if(Model.Presupuesto.Id != 0)
+        {
+            titulo = "Actualizar Presupuesto";
+            <input type="hidden" asp-for="Presupuesto.Id" id="id"/>
+        }
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo</h2>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Tipo de Gasto</label>
+                <select asp-for="Presupuesto.TipoGastoId" asp-items="@Model.TipoGastoLista" class="form-select">
+                    <option disabled selected>-- Seleccione un Tipo de Gasto --</option>
+                </select>
+                <span asp-validation-for="Presupuesto.TipoGastoId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Mes</label>
+                <input type="month" asp-for="Presupuesto.Mes" class="form-control" placeholder="Mes de presupuesto"/>
+                <span asp-validation-for="Presupuesto.Mes" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Monto</label>
+                <input type="number" asp-for="Presupuesto.Monto" class="form-control" placeholder="Monto de presupuesto" />
+                <span asp-validation-for="Presupuesto.Monto" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Fecha de Creación</label>
+                <input type="date" asp-for="Presupuesto.FechaCreacion" class="form-control" placeholder="Fecha de creación de presupuesto" />
+                <span asp-validation-for="Presupuesto.FechaCreacion" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+
+        <div>
+            @if (Model.Presupuesto.Id != 0)
+            {
+                <partial name="_BotonesActualizarYRegresar" model="Model.Presupuesto.Id" />
+            }
+            else
+            {
+                <partial name="_BotonesCrearYRegresar" />
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+
