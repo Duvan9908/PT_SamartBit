@@ -1,0 +1,66 @@
+﻿@model PT_SmartBit.Modelos.ViewModels.DepositoVM
+@using PT_SmartBit.Utilidades
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Crear Deposito";
+}
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+
+        @if(Model.Deposito.Id != 0)
+        {
+            titulo = "Actualizar Deposito";
+            <input type="hidden" asp-for="Deposito.Id" id="id"/>
+        }
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo</h2>
+        </div>        
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Fecha</label>
+                <input type="date" asp-for="Deposito.Fecha" class="form-control" placeholder="Fecha de deposito"/>
+                <span asp-validation-for="Deposito.Fecha" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Fondo Monetario</label>
+                <select asp-for="Deposito.FondoMonetarioId" asp-items="@Model.FondoMonetarioLista" class="form-select">
+                    <option disabled selected>-- Seleccione un Fondo Monetario --</option>
+                </select>
+                <span asp-validation-for="Deposito.FondoMonetarioId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Monto</label>
+                <input type="number" asp-for="Deposito.Monto" class="form-control" placeholder="Monto de deposito" />
+                <span asp-validation-for="Deposito.Monto" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div>
+            @if (Model.Deposito.Id != 0)
+            {
+                <partial name="_BotonesActualizarYRegresar" model="Model.Deposito.Id" />
+            }
+            else
+            {
+                <partial name="_BotonesCrearYRegresar" />
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+

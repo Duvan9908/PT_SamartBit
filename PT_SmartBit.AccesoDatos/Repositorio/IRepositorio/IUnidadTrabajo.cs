@@ -11,6 +11,10 @@ namespace PT_SmartBit.AccesoDatos.Repositorio.IRepositorio
         ITipoGastoRepositorio TipoGasto { get; }
         IFondoMonetarioRepositorio FondoMonetario { get; }
         IPresupuestoRepositorio Presupuesto { get; }
+        IGastoEncabezadoRepositorio GastoEncabezado { get; }
+        IGastoDetalleRepositorio GastoDetalle { get; }
+        IDepositoRepositorio Deposito { get; }
+        IUsuarioAppRepositorio UsuarioApp {  get; }
         Task Guardar();
     }
 }
