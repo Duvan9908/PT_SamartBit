@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row border-bottom">
+        <div class="col-lg-6">
+            <h2 class="text-primary"> Lista de Gastos </h2>
+        </div>
+        <div class="col-lg-6">
+            <a class="btn btn-outline-primary" asp-action="Upsert"> Registar Gasto </a>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="p-4 border rounded bg-light">
+        <table id="tblDatos" class="table table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th colspan="5">Gasto Encabezado</th>
+                    <th colspan="2">Gasto Detalle</th>
+                </tr>
+                <tr class="table-dark">
+                    <th>Fecha</th>
+                    <th>Fondo Monetario</th>
+                    <th>Observaciones</th>
+                    <th>Nombre Comercio</th>
+                    <th>Tipo Documento</th>
+                    <th>Tipo de Gasto</th>
+                    <th>Monto</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+   
+</div>
+
+@section Scripts {
+    <script src="~/js/registroGasto.js"></script>
+}
+

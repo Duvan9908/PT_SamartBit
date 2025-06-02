@@ -1,0 +1,99 @@
+﻿@model PT_SmartBit.Modelos.ViewModels.RegistroGastoVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Registrar Gasto";
+}
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+
+        @if(Model.GastoEncabezado.Id != 0)
+        {
+            titulo = "Actualizar Gasto";
+            <input type="hidden" asp-for="GastoEncabezado.Id" id="id"/>
+        }
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo</h2>
+        </div>        
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Fecha</label>
+                <input type="date" asp-for="GastoEncabezado.Fecha" class="form-control" placeholder="Fecha de gasto"/>
+                <span asp-validation-for="GastoEncabezado.Fecha" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Fondo Monetario</label>
+                <select asp-for="GastoEncabezado.FondoMonetarioId" asp-items="@Model.FondoMonetarioLista" class="form-select">
+                    <option disabled selected>-- Seleccione un Fondo Monetario --</option>
+                </select>
+                <span asp-validation-for="GastoEncabezado.FondoMonetarioId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Observaciones</label>
+                <input type="text" asp-for="GastoEncabezado.Observaciones" class="form-control" placeholder="Observaciones" />
+                <span asp-validation-for="GastoEncabezado.Observaciones" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Nombre de comercio</label>
+                <input type="text" asp-for="GastoEncabezado.NombreComercio" class="form-control" placeholder="Nombre de comercio" />
+                <span asp-validation-for="GastoEncabezado.NombreComercio" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Tipo de documento</label>
+                <input type="text" asp-for="GastoEncabezado.TipoDocumento" class="form-control" placeholder="Tipo de documento" />
+                <span asp-validation-for="GastoEncabezado.TipoDocumento" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Fondo Monetario</label>
+                <select asp-for="GastoDetalle.TipoGastoId" asp-items="@Model.TipoGastoLista" class="form-select">
+                    <option disabled selected>-- Seleccione un Tipo de Gasto --</option>
+                </select>
+                <span asp-validation-for="GastoDetalle.TipoGastoId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Monto</label>
+                <input type="number" asp-for="GastoDetalle.Monto" class="form-control" placeholder="Monto de deposito" />
+                <span asp-validation-for="GastoDetalle.Monto" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div>
+            @if (Model.GastoEncabezado.Id != 0)
+            {
+                <partial name="_BotonesActualizarYRegresar" model="Model.GastoEncabezado.Id" />
+            }
+            else
+            {
+                <partial name="_BotonesCrearYRegresar" />
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+

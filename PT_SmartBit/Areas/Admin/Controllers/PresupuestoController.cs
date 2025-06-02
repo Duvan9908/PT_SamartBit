@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PT_SmartBit.AccesoDatos.Repositorio.IRepositorio;
 using PT_SmartBit.Modelos;
 using PT_SmartBit.Modelos.ViewModels;
@@ -7,6 +8,7 @@ using PT_SmartBit.Utilidades;
 namespace PT_SmartBit.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize]
     public class PresupuestoController : Controller
     {
         private readonly IUnidadTrabajo _unidadTrabajo;
