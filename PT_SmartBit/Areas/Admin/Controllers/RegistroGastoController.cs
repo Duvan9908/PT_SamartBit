@@ -22,15 +22,6 @@ namespace PT_SmartBit.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            //RegistroGastoVM registroGastoVM = new RegistroGastoVM()
-            //{
-            //    GastoEncabezado = new GastoEncabezado(),
-            //    FondoMonetarioLista = _unidadTrabajo.GastoEncabezado.ObtenerTodosDropdownList("FondoMonetario"),
-            //    GastoDetalle = new GastoDetalle(),
-            //    GastoEncabezadoLista = _unidadTrabajo.GastoDetalle.ObtenerTodosDropdownList("GastoEncabezado"),
-            //    TipoGastoLista = _unidadTrabajo.GastoDetalle.ObtenerTodosDropdownList("TipoGasto")
-            //};
-            //return View(registroGastoVM);
             return View();
         }
 

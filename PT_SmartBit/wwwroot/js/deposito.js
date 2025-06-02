@@ -36,7 +36,12 @@ function loadDataTable() {
                 }, "whidth": "10%"
             },
             { "data": "fondoMonetario.nombre", "width": "20%" },            
-            { "data": "monto", "width": "20%" },            
+            {
+                "data": "monto",
+                "render": function (data) {
+                    return formatearMoneda(data);
+                }, "width": "20%"
+            },            
             {
                 "data": "id",
                 "render": function (data) {
@@ -81,3 +86,13 @@ function Delete(url) {
         }
     });
 }
+
+function formatearMoneda(data) {
+          const formatter = new Intl.NumberFormat('es-CO', {
+              style: 'currency',
+              currency: 'COP',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 2
+          });
+          return formatter.format(data);
+      }

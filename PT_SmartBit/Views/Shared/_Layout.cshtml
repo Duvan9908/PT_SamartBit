@@ -30,16 +30,33 @@
                         </li> *@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                                Control de Gastos
+                                Manteniemientos
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" asp-area="Admin" asp-controller="TipoGasto" asp-action="Index">Tipo de Gasto</a></li>
-                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="FondoMonetario" asp-action="Index">Fondo Monetario</a></li>
-                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Presupuesto" asp-action="Index">Presupuestos</a></li>
-                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Deposito" asp-action="Index">Depositos</a></li>
-                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="RegistroGasto" asp-action="Index">Registro de Gastos</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="FondoMonetario" asp-action="Index">Fondo Monetario</a></li>                                
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                Movimientos
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Presupuesto" asp-action="Index">Presupuestos</a></li>                                
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="RegistroGasto" asp-action="Index">Registro de Gastos</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Deposito" asp-action="Index">Depositos</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                Consultas y Reportes
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="ConsultaMovimientos" asp-action="Index">Consultar Movimientos</a></li>
+                                <li><a class="dropdown-item" asp-area="Admin" asp-controller="Grafico" asp-action="Index">Grafico Comparativo</a></li>
+                            </ul>
+                        </li>
+                        
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

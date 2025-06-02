@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -30,10 +31,15 @@ namespace PT_SmartBit.AccesoDatos.Repositorio
             return await dbSet.FindAsync(Id);
         }
 
-        public async Task<IEnumerable<T>> ObtenerTodos(string incluirPropiedades = null, bool isTracking = true)
+        public async Task<IEnumerable<T>> ObtenerTodos(Expression<Func<T, bool>> filtro = null, 
+            string incluirPropiedades = null, bool isTracking = true)
         {
             IQueryable<T> query = dbSet;
-            if(incluirPropiedades != null)
+            if (filtro != null)
+            {
+                query = query.Where(filtro); //Es un select * from where, aplica el filtro
+            }
+            if (incluirPropiedades != null)
             {
                 foreach (var incluirProp in incluirPropiedades.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
                 {
